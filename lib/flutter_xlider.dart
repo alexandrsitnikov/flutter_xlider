@@ -305,7 +305,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
                 width: _containerWidth,
                 child: Stack(
                   overflow: Overflow.visible,
-                  children: drawHandlers() as List<Widget>,
+                  children: drawHandlers()
                 ),
                 foregroundDecoration: widget.foregroundDecoration,
                 decoration: widget.decoration,
@@ -1569,10 +1569,10 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
   }
 
   drawHandlers() {
-    List<Positioned?> items = []..addAll([
-        Function.apply(_inactiveTrack, []) as Positioned?,
-        Function.apply(_centralWidget, []) as Positioned?,
-        Function.apply(_activeTrack, []) as Positioned?,
+    List<Positioned> items = []..addAll([
+        Function.apply(_inactiveTrack, []),
+        Function.apply(_centralWidget, []),
+        Function.apply(_activeTrack, []),
       ]);
     items..addAll(_points!);
 
