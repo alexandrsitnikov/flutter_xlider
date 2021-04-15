@@ -987,13 +987,13 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
         return false;
       }
 
-      for (FlutterSliderIgnoreSteps steps in _ignoreSteps!) {
+      for (FlutterSliderIgnoreSteps? steps in _ignoreSteps!) {
         if (((!widget.rtl!) &&
                 (getValueByPositionIgnoreOffset(__axisPosTmp!) > steps!.from! - _widgetStep! / 2 &&
-                    getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps!.to! + _widgetStep! / 2)) ||
+                    getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps.to! + _widgetStep! / 2)) ||
             ((widget.rtl!) &&
                 (_realMax! - getValueByPositionIgnoreOffset(__axisPosTmp!) > steps!.from! - _widgetStep! / 2 &&
-                    _realMax! - getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps!.to! + _widgetStep! / 2)))
+                    _realMax! - getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps.to! + _widgetStep! / 2)))
           validMove = false;
       }
     }
@@ -1226,13 +1226,13 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
         return false;
       }
 
-      for (FlutterSliderIgnoreSteps steps in _ignoreSteps!) {
+      for (FlutterSliderIgnoreSteps? steps in _ignoreSteps!) {
         if (((!widget.rtl!) &&
                 (getValueByPositionIgnoreOffset(__axisPosTmp!) > steps!.from! - _widgetStep! / 2 &&
-                    getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps!.to! + _widgetStep! / 2)) ||
+                    getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps.to! + _widgetStep! / 2)) ||
             ((widget.rtl!) &&
                 (_realMax! - getValueByPositionIgnoreOffset(__axisPosTmp!) > steps!.from! - _widgetStep! / 2 &&
-                    _realMax! - getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps!.to! + _widgetStep! / 2)))
+                    _realMax! - getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps.to! + _widgetStep! / 2)))
           validMove = false;
       }
     }
@@ -1262,7 +1262,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
   double? _findBiggestIgnorePoint({bool? ignoreBeyondBoundaries = false}) {
     double? ignorePoint = _realMin;
     bool beyondBoundaries = false;
-    for (FlutterSliderIgnoreSteps steps in _ignoreSteps!) {
+    for (FlutterSliderIgnoreSteps? steps in _ignoreSteps!) {
       if (steps!.to! > _realMax!) beyondBoundaries = true;
 
       if (steps!.to! > ignorePoint! && steps.to! <= _realMax!)
