@@ -783,7 +783,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
     FlutterSliderHandler inputRightHandler = widget.rightHandler ?? FlutterSliderHandler();
     inputRightHandler.child ??=
         Icon((widget.axis == Axis.horizontal) ? Icons.chevron_left : Icons.expand_less, color: Colors.black45);
-    inputRightHandler.disabled ??= false;
+    //inputRightHandler.disabled ??= false;
     inputRightHandler.decoration ??= BoxDecoration(
         boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 2, spreadRadius: 0.2, offset: Offset(0, 1))],
         color: Colors.white,
@@ -1265,7 +1265,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
     for (FlutterSliderIgnoreSteps? steps in _ignoreSteps!) {
       if (steps!.to! > _realMax!) beyondBoundaries = true;
 
-      if (steps!.to! > ignorePoint! && steps.to! <= _realMax!)
+      if (steps.to! > ignorePoint! && steps.to! <= _realMax!)
         ignorePoint = steps.to! + _widgetStep!;
       else if (steps.from! > ignorePoint && steps.from! <= _realMax!) ignorePoint = steps.from! - _widgetStep!;
     }
@@ -1794,7 +1794,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
 
     List<Widget> children = [
       prefix,
-      Text(numberFormat!, style: _tooltipData!.textStyle),
+      Text(numberFormat, style: _tooltipData!.textStyle),
       suffix,
     ];
 
@@ -2105,7 +2105,7 @@ class _MakeHandler extends StatelessWidget {
       handler.child ??= Icon(hIcon, color: Colors.black45);
     }
 
-    handler.disabled ??= false;
+    //handler.disabled ??= false;
     handler.decoration ??= BoxDecoration(
         boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 2, spreadRadius: 0.2, offset: Offset(0, 1))],
         color: Colors.white,
@@ -2128,7 +2128,7 @@ class _MakeHandler extends StatelessWidget {
             child: ScaleTransition(
               scale: animation as Animation<double>,
               child: Opacity(
-                opacity: handler.opacity ?? 1,
+                opacity: handler.opacity,
                 child: Container(
                   alignment: Alignment.center,
                   foregroundDecoration: handler.foregroundDecoration,
