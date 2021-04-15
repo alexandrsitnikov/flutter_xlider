@@ -320,8 +320,10 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
   double? _findProperSliderSize() {
     final List<double> sizes = [widget.trackBar!.activeTrackBarHeight, widget.trackBar!.inactiveTrackBarHeight];
     if (widget.axis == Axis.horizontal) {
-      sizes.add(_handlersHeight);
+      if (_handlersHeight != null)
+      sizes.add(_handlersHeight!);
     } else {
+      if (_handlersWidth != null)
       sizes.add(_handlersWidth);
     }
 
