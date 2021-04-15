@@ -1359,7 +1359,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
                     value: _outputLowerValue,
                     opacity: _leftTooltipOpacity,
                     animation: _leftTooltipAnimation),
-                leftHandler,
+                if (leftHandler != null) leftHandler!,
               ],
             ),
             feedback: Container()),
@@ -1468,7 +1468,8 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
                     value: _outputUpperValue,
                     opacity: _rightTooltipOpacity,
                     animation: _rightTooltipAnimation),
-                rightHandler,
+                    if (rightHandler != null)
+                rightHandler!,
               ] ,
             ),
             feedback: Container(
