@@ -434,8 +434,8 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
         [widget.trackBar!.inactiveTrackBarHeight, widget.trackBar!.activeTrackBarHeight].reduce(max);
 
     final FlutterSliderHatchMark hatchMark = FlutterSliderHatchMark();
-    hatchMark.disabled = widget.hatchMark!.disabled ?? false;
-    hatchMark.density = widget.hatchMark!.density ?? 1;
+    hatchMark.disabled = widget.hatchMark!.disabled;
+    hatchMark.density = widget.hatchMark!.density;
     hatchMark.linesDistanceFromTrackBar = widget.hatchMark!.linesDistanceFromTrackBar ?? 0;
     hatchMark.labelsDistanceFromTrackBar = widget.hatchMark!.labelsDistanceFromTrackBar ?? 0;
     hatchMark.smallLine = widget.hatchMark!.smallLine ??
@@ -444,7 +444,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
         const FlutterSliderSizedBox(height: 9, width: 2, decoration: BoxDecoration(color: Colors.black45));
     hatchMark.labelBox = widget.hatchMark!.labelBox ?? const FlutterSliderSizedBox(height: 50, width: 50);
     hatchMark.labels = widget.hatchMark!.labels ?? null;
-    hatchMark.linesAlignment = widget.hatchMark!.linesAlignment ?? FlutterSliderHatchMarkAlignment.right;
+    hatchMark.linesAlignment = widget.hatchMark!.linesAlignment;
     hatchMark.displayLines = widget.hatchMark!.displayLines ?? false;
 
     if (hatchMark.displayLines!) {
@@ -987,7 +987,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
         return false;
       }
 
-      for (FlutterSliderIgnoreSteps? steps in _ignoreSteps!) {
+      for (FlutterSliderIgnoreSteps steps in _ignoreSteps!) {
         if (((!widget.rtl!) &&
                 (getValueByPositionIgnoreOffset(__axisPosTmp!) > steps!.from! - _widgetStep! / 2 &&
                     getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps!.to! + _widgetStep! / 2)) ||
@@ -1226,7 +1226,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
         return false;
       }
 
-      for (FlutterSliderIgnoreSteps? steps in _ignoreSteps!) {
+      for (FlutterSliderIgnoreSteps steps in _ignoreSteps!) {
         if (((!widget.rtl!) &&
                 (getValueByPositionIgnoreOffset(__axisPosTmp!) > steps!.from! - _widgetStep! / 2 &&
                     getValueByPositionIgnoreOffset(__axisPosTmp!) <= steps!.to! + _widgetStep! / 2)) ||
@@ -1262,7 +1262,7 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
   double? _findBiggestIgnorePoint({bool? ignoreBeyondBoundaries = false}) {
     double? ignorePoint = _realMin;
     bool beyondBoundaries = false;
-    for (FlutterSliderIgnoreSteps? steps in _ignoreSteps!) {
+    for (FlutterSliderIgnoreSteps steps in _ignoreSteps!) {
       if (steps!.to! > _realMax!) beyondBoundaries = true;
 
       if (steps!.to! > ignorePoint! && steps.to! <= _realMax!)
