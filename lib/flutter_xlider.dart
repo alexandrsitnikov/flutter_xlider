@@ -1353,14 +1353,14 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
             axis: widget.axis,
             child: Stack(
               overflow: Overflow.visible,
-              children: <Widget?>[
+              children: [
                 _tooltip(
                     side: 'left',
                     value: _outputLowerValue,
                     opacity: _leftTooltipOpacity,
                     animation: _leftTooltipAnimation),
                 leftHandler,
-              ] as List<Widget>,
+              ],
             ),
             feedback: Container()),
         onPointerMove: (_) {
@@ -1462,14 +1462,14 @@ class _FlutterSliderState extends State<FlutterSlider> with TickerProviderStateM
             axis: Axis.horizontal,
             child: Stack(
               overflow: Overflow.visible,
-              children: <Widget?>[
+              children: [
                 _tooltip(
                     side: 'right',
                     value: _outputUpperValue,
                     opacity: _rightTooltipOpacity,
                     animation: _rightTooltipAnimation),
                 rightHandler,
-              ] as List<Widget>,
+              ] ,
             ),
             feedback: Container(
 //                            width: 20,
